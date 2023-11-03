@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Text;
 
 namespace main
 {
@@ -8,12 +10,17 @@ namespace main
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        private SpriteFont _font;
+
+
+        int a = 0;
 
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+
         }
 
         protected override void Initialize()
@@ -26,6 +33,7 @@ namespace main
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            //_font = Load<SpriteFont>("Font");
 
             // TODO: use this.Content to load your game content here
         }
@@ -35,6 +43,8 @@ namespace main
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            if (Keyboard.GetState().IsKeyDown(Keys.J))
+                a += 1;
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -42,11 +52,12 @@ namespace main
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.GreenYellow);
 
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
+            _spriteBatch.DrawString(_font, a.ToString(), new Vector2(60 ,25),Color.Aquamarine);
         }
     }
 }
