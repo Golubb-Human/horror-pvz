@@ -1,8 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System.Text;
 
 namespace main
 {
@@ -33,7 +31,7 @@ namespace main
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            //_font = Load<SpriteFont>("Font");
+            _font = Content.Load<SpriteFont>("Tet");
 
             // TODO: use this.Content to load your game content here
         }
@@ -52,12 +50,14 @@ namespace main
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.GreenYellow);
+            GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
-            _spriteBatch.DrawString(_font, a.ToString(), new Vector2(60 ,25),Color.Aquamarine);
+            _spriteBatch.Begin();
+            _spriteBatch.DrawString(_font, a.ToString(), new Vector2(60, 25), Color.White);
+            _spriteBatch.End();
         }
     }
 }

@@ -23,3 +23,5 @@ C:\Users\UserHuman\Desktop\other stuff\horror-pvz\horror-pvz\main\main\obj\Relea
 C:\Users\UserHuman\Desktop\other stuff\horror-pvz\horror-pvz\main\main\obj\Release\net6.0\main.pdb
 C:\Users\UserHuman\Desktop\other stuff\horror-pvz\horror-pvz\main\main\obj\Release\net6.0\main.genruntimeconfig.cache
 C:\Users\UserHuman\Desktop\other stuff\horror-pvz\horror-pvz\main\main\obj\Release\net6.0\ref\main.dll
+C:\Users\UserHuman\Desktop\other stuff\horror-pvz\horror-pvz\main\main\bin\Release\net6.0\Content\File.xnb
+C:\Users\UserHuman\Desktop\other stuff\horror-pvz\horror-pvz\main\main\bin\Release\net6.0\Content\Tet.xnb
