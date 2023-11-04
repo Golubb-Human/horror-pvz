@@ -12,13 +12,17 @@ namespace main
 
 
         int a = 0;
+        int x = 640/2;
+        int y = 480/2;
+
+        const int ScreenWidth = 640;
+        const int ScreenHeight = 480;
 
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-
         }
 
         protected override void Initialize()
@@ -32,7 +36,8 @@ namespace main
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _font = Content.Load<SpriteFont>("Tet");
-
+            _graphics.PreferredBackBufferWidth = ScreenWidth;
+            _graphics.PreferredBackBufferHeight = ScreenHeight;
             // TODO: use this.Content to load your game content here
         }
 
@@ -43,6 +48,19 @@ namespace main
 
             if (Keyboard.GetState().IsKeyDown(Keys.J))
                 a += 1;
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Left))
+                x -= 3;
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Right))
+                x += 3;
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Up))
+                y -= 3;
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Down))
+                y += 3;
+
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -56,7 +74,7 @@ namespace main
 
             base.Draw(gameTime);
             _spriteBatch.Begin();
-            _spriteBatch.DrawString(_font, a.ToString(), new Vector2(60, 25), Color.White);
+            _spriteBatch.DrawString(_font, a.ToString(), new Vector2(x, y), Color.White);
             _spriteBatch.End();
         }
     }
