@@ -23,15 +23,12 @@ class peeShoter(plant):
         self.time3 = datetime.datetime.now() - self.time1 
         self.time1 = datetime.datetime.now()
         for i in range(len(self.bullets)):
-            # try:
-                if self.pos[i] != [0, 0]:
-                    if (self.bullets[i][0] - marginLeftOfGrid) / widthOfGrid - (self.pos[0] - marginLeftOfGrid) / widthOfGrid >= 11:
-                        del self.bullets[i]
-                    else:
-                        self.bullets[i][0] += (self.time3 * self.speedOfBullet).total_seconds()
-                        pygame.draw.circle(sc, self.colorOfBullet, self.bullets[i], 5)
-            # except IndexError:
-            #     pass
+            if self.pos != [0, 0]:
+                if (self.bullets[i][0] - marginLeftOfGrid) / widthOfGrid - (self.pos[0] - marginLeftOfGrid) / widthOfGrid >= self.shootLength:
+                    del self.bullets[i]
+                else:
+                    self.bullets[i][0] += (self.time3 * self.speedOfBullet).total_seconds()
+                    pygame.draw.circle(sc, self.colorOfBullet, self.bullets[i], 5)
             
         if self.time1 > self.time2:
             self.bullets.append((self.pos).copy())
