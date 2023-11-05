@@ -25,7 +25,7 @@ class peeShoter(plant):
         for i in range(len(self.bullets)):
             # try:
                 if self.pos[i] != [0, 0]:
-                    if (self.bullets[i][0] - marginLeftOfGrid) / widthOfGrid >= 9:
+                    if (self.bullets[i][0] - marginLeftOfGrid) / widthOfGrid - (self.pos[0] - marginLeftOfGrid) / widthOfGrid >= 11:
                         del self.bullets[i]
                     else:
                         self.bullets[i][0] += (self.time3 * self.speedOfBullet).total_seconds()
