@@ -1,5 +1,6 @@
 import pygame
 from setting import *
+import plants
 
 pygame.init()
 
@@ -19,7 +20,7 @@ select = 0
 
 while True:
     mousePos = pygame.mouse.get_pos()
-    sc.fill((0, 0, 0))
+    sc.blit(backGround, (-leftCameraX, 0))
     
     for i in pygame.event.get():
         if i.type == pygame.QUIT:
@@ -30,16 +31,15 @@ while True:
                 if int(iX + 0.25) != int(iX)+1 and mousePos[1] > marginTopOfListOfPlants and mousePos[1] < marginTopOfListOfPlants + heightOfListOfPlants:
                     iX = int(iX)
                     if listOfPlants[iX] == 1:
-                        select = plants.peeShoter(20, peashooterSurf, 9, incrementOfPeahooter, (200, 200, 200), [0, 0], 100)
+                        select = plants.peeShoter(20, peashooterSurf, shootLength, incrementOfPeahooter, (200, 200, 200), [0, 0], 100)
                 else:
                     if select != 0:
                         try:
                             j1 = (mousePos[0] - marginLeftOfGrid) / widthOfGrid
-                            i1 = (mousePos[1] - marginTopOfGrid) / heightOfGrid
+                            i1 = (mousePos[1] - marginTopOfGrid) / (heightOfGrid+marginTopOfGrid2)
                             if i1 >= 0 and j1 >= 0:
                                 select.pos = [widthOfGrid * int(j1) + marginLeftOfGrid + widthOfGrid, 
-                                            heightOfGrid * int(i1) + marginTopOfGrid + heightOfGrid/2 - 13 ]
-                                print(select.pos)
+                                            (heightOfGrid+marginTopOfGrid2) * int(i1) + marginTopOfGrid + (heightOfGrid+marginTopOfGrid2)/2 - 13 ]
                                 grid[int(i1)][int(j1)] = select
                         except IndexError:
                             pass
@@ -61,13 +61,13 @@ while True:
     for i in range(len(grid)):
         for j in range(len(grid[i])):
             # if grid[i] != 0:
-            pygame.draw.rect(sc, (200, 200, 200), (widthOfGrid * j + marginLeftOfGrid, 
-                                                    heightOfGrid * i + marginTopOfGrid, 
-                                                    widthOfGrid, 
-                                                    heightOfGrid), 1)
+            # pygame.draw.rect(sc, (200, 200, 200), (widthOfGrid * j + marginLeftOfGrid, 
+            #                                         (heightOfGrid+marginTopOfGrid2) * i + marginTopOfGrid, 
+            #                                         widthOfGrid, 
+            #                                         (heightOfGrid+marginTopOfGrid2)), 1)
             try:
                 sc.blit(pygame.transform.scale(grid[i][j].color, (widthOfGrid, heightOfGrid)), (widthOfGrid * j + marginLeftOfGrid, 
-                                                                                              marginTopOfGrid + heightOfGrid * i))
+                                                                                              marginTopOfGrid + heightOfGrid * i + marginTopOfGrid2*(i+1)))
                 grid[i][j].update(sc)
             except Exception as e:
                 # print(e, "x: ", j, "y: ", i)
