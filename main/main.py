@@ -4,13 +4,9 @@ import plants
 
 pygame.init()
 
-width, height = 640, 480
+grid = list([list([0 for i in range(columns)]) for j in range(rows)])
 
-sc = pygame.display.set_mode((width, height))
-
-grid = list([list([0 for i in range(9)]) for j in range(5)])
-
-listOfPlants = list([0 for i in range(9)])
+listOfPlants = list([0 for i in range(columns)])
 
 listOfPlants[0] = 1
 listOfPlants[1] = 2
@@ -18,6 +14,8 @@ listOfPlants[1] = 2
 textures = {1: peashooterSurf, 2: sunflowerSurf}
 
 select = 0
+
+sunsNums = 50
 
 while True:
     mousePos = pygame.mouse.get_pos()
@@ -32,21 +30,33 @@ while True:
                 if int(iX + 0.25) != int(iX)+1 and mousePos[1] > marginTopOfListOfPlants and mousePos[1] < marginTopOfListOfPlants + heightOfListOfPlants:
                     iX = int(iX)
                     if listOfPlants[iX] == 1:
-                        select = plants.peeShoter(20, peashooterSurf, shootLength, incrementOfPeahooter, (200, 200, 200), [0, 0], 100)
+                        select = plants.peeShoter(20, peashooterSurf, shootLength, incrementOfPeahooter, (200, 200, 200), [0, 0], 100, peashooterSurfAlpha, costOfPeaShooter)
                     if listOfPlants[iX] == 2:
-                        select = plants.sunFlower(sunflowerSurf, incrementOfSunflower, incrementOfSunDead, sunSurf, [0, 0])
+                        select = plants.sunFlower(sunflowerSurf, incrementOfSunflower, incrementOfSunDead, sunSurf, [0, 0], sunflowerSurfAlpha, costOfSunflower)
                 else:
                     if select != 0:
                         try:
                             j1 = (mousePos[0] - marginLeftOfGrid) / widthOfGrid
                             i1 = (mousePos[1] - marginTopOfGrid) / (heightOfGrid+marginTopOfGrid2)
-                            if i1 >= 0 and j1 >= 0:
+                            if i1 >= 0 and j1 >= 0 and grid[int(i1)][int(j1)] == 0:
                                 select.pos = [widthOfGrid * int(j1) + marginLeftOfGrid + widthOfGrid, 
                                             (heightOfGrid+marginTopOfGrid2) * int(i1) + marginTopOfGrid + (heightOfGrid+marginTopOfGrid2)/2 - 13 ]
                                 grid[int(i1)][int(j1)] = select
                         except IndexError:
                             pass
                         select = 0
+    
+    
+    if select != 0:
+        try:
+            j1 = (mousePos[0] - marginLeftOfGrid) / widthOfGrid
+            i1 = (mousePos[1] - marginTopOfGrid) / (heightOfGrid+marginTopOfGrid2)
+            if i1 >= 0 and j1 >= 0 and i1 < rows and j1 < columns and grid[int(i1)][int(j1)] == 0:
+                sc.blit(pygame.transform.scale(select.colorAlpha, (widthOfGrid, heightOfGrid)), (widthOfGrid * int(j1) + marginLeftOfGrid, 
+                                                (heightOfGrid+marginTopOfGrid2) * int(i1) + marginTopOfGrid + marginTopOfGrid2))
+
+        except IndexError:
+            pass
     
     for i in range(len(listOfPlants)):
         if listOfPlants[i] != 0:
@@ -61,10 +71,17 @@ while True:
         for j in range(len(grid[i])):
             try:
                 sc.blit(pygame.transform.scale(grid[i][j].color, (widthOfGrid, heightOfGrid)), (widthOfGrid * j + marginLeftOfGrid, 
-                                                                                              marginTopOfGrid + heightOfGrid * i + marginTopOfGrid2*(i+1)))
-                grid[i][j].update(sc)
-            except Exception as e:
+                                                                                                marginTopOfGrid + heightOfGrid * i + marginTopOfGrid2*(i+1)))
+            except AttributeError:
                 pass
+           
+    for i in range(len(grid)):
+        for j in range(len(grid[i])): 
+            try:
+                grid[i][j].update(sc)
+            except AttributeError:
+                pass
+            
     if select != 0:
         try:
             sc.blit(pygame.transform.scale(select.color, (widthOfGrid, heightOfGrid)), (mousePos[0]-widthOfListOfPlants/2, 
