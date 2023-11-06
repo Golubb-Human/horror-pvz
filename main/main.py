@@ -13,8 +13,9 @@ grid = list([list([0 for i in range(9)]) for j in range(5)])
 listOfPlants = list([0 for i in range(9)])
 
 listOfPlants[0] = 1
+listOfPlants[1] = 2
 
-textures = {1: peashooterSurf}
+textures = {1: peashooterSurf, 2: sunflowerSurf}
 
 select = 0
 
@@ -32,6 +33,8 @@ while True:
                     iX = int(iX)
                     if listOfPlants[iX] == 1:
                         select = plants.peeShoter(20, peashooterSurf, shootLength, incrementOfPeahooter, (200, 200, 200), [0, 0], 100)
+                    if listOfPlants[iX] == 2:
+                        select = plants.sunFlower(sunflowerSurf, incrementOfSunflower, incrementOfSunDead, sunSurf, [0, 0])
                 else:
                     if select != 0:
                         try:
@@ -52,28 +55,16 @@ while True:
             sc.blit(pygame.transform.scale(textures[listOfPlants[i]], (widthOfIconOfListOfPlants, heightOfIconOfListOfPlants)), 
                                                         (widthOfListOfPlants * i + marginLeftOfListOfPlants * (i+1) + marginLeftOfIconOfListOfPlants * (i+1), 
                                                         marginTopOfListOfPlants + marginTopOfIconOfListOfPlants))
-            # pygame.draw.rect(sc, plants[listOfPlants[i]], (widthOfListOfPlants * i + marginLeftOfListOfPlants * (i+1), 
-            #                                             marginTopOfListOfPlants, 
-            #                                             widthOfListOfPlants, 
-            #                                             heightOfListOfPlants))
         else:
             break
     for i in range(len(grid)):
         for j in range(len(grid[i])):
-            # if grid[i] != 0:
-            # pygame.draw.rect(sc, (200, 200, 200), (widthOfGrid * j + marginLeftOfGrid, 
-            #                                         (heightOfGrid+marginTopOfGrid2) * i + marginTopOfGrid, 
-            #                                         widthOfGrid, 
-            #                                         (heightOfGrid+marginTopOfGrid2)), 1)
             try:
                 sc.blit(pygame.transform.scale(grid[i][j].color, (widthOfGrid, heightOfGrid)), (widthOfGrid * j + marginLeftOfGrid, 
                                                                                               marginTopOfGrid + heightOfGrid * i + marginTopOfGrid2*(i+1)))
                 grid[i][j].update(sc)
             except Exception as e:
-                # print(e, "x: ", j, "y: ", i)
                 pass
-            # else:
-        #     break
     if select != 0:
         try:
             sc.blit(pygame.transform.scale(select.color, (widthOfGrid, heightOfGrid)), (mousePos[0]-widthOfListOfPlants/2, 

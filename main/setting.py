@@ -21,15 +21,17 @@ leftCameraX = 44
 
 backGroundOfSeedPackSurf = pygame.image.load("textures\\backGroundOfSeedPack.png")
 peashooterSurf = pygame.image.load("textures\\peashooter.png")
+sunflowerSurf = pygame.image.load("textures\\sunflower.png")
+sunSurf = pygame.image.load("textures\\sunflower.png")
 backGround = pygame.image.load("textures\\background.png")
 
-incrementOfPeahooter = datetime.timedelta(
-    seconds=1.425,
-)
+incrementOfPeahooter = datetime.timedelta(seconds=1.425)
+incrementOfSunflower = datetime.timedelta(seconds=9)
+incrementOfSunDead = datetime.timedelta(seconds=5)
 
 shootLength = 10
 
 costOfPeaShooter = 100
 
-widthOfMoon = 20
-heightOfMoon = 20
+widthOfSun = 20
+heightOfSun = 20
