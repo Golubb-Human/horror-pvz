@@ -28,3 +28,8 @@ incrementOfPeahooter = datetime.timedelta(
 )
 
 shootLength = 10
+
+costOfPeaShooter = 100
+
+widthOfMoon = 20
+heightOfMoon = 20
