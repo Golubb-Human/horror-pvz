@@ -7,7 +7,11 @@ width, height = 640, 480
 
 sc = pygame.display.set_mode((width, height))
 
-marginLeftOfListOfPlants = 10
+marginLeftOfSunsNum = 10
+marginTopOfSunsNum = 20
+
+marginLeftOfListOfPlants = marginLeftOfSunsNum + 70
+marginLeftOfListOfPlantsEvery = 10
 marginTopOfListOfPlants = 5
 widthOfListOfPlants = 50
 heightOfListOfPlants = 70
@@ -18,14 +22,18 @@ marginTopOfGrid2 = 10
 widthOfGrid = 52
 heightOfGrid = 68 - marginTopOfGrid2
 
-marginLeftOfIconOfListOfPlants = 4
+marginLeftOfIconOfListOfPlants = 6
 marginTopOfIconOfListOfPlants = 9
-widthOfIconOfListOfPlants = 40
+widthOfIconOfListOfPlants = 35
 heightOfIconOfListOfPlants = 40
+
+padingLeftOfCost = 5
+padingTopOfCost = 47
 
 leftCameraX = 44
 
 backGroundOfSeedPackSurf = pygame.image.load("textures\\backGroundOfSeedPack.png")
+stopMenuSurf = pygame.image.load("textures\\stopMenu.png")
 peashooterSurf = pygame.image.load("textures\\peashooter.png")
 sunflowerSurf = pygame.image.load("textures\\sunflower.png")
 sunSurf = pygame.image.load("textures\\sun.png")
@@ -44,10 +52,20 @@ incrementOfSunDead = datetime.timedelta(seconds=7)
 shootLength = 10
 
 costOfPeaShooter = 100
-costOfSunflower = 100
+costOfSunflower = 50
 
-widthOfSun = 20
-heightOfSun = 20
+widthOfSun = 30
+heightOfSun = 30
 
 columns = 9
 rows = 5
+
+stopMenuWidth = 200
+stopMenuHeight = 200
+
+timeStop = False
+
+sunsNumFont = pygame.font.SysFont('Comforter Brush Regular', 40)
+costFont = pygame.font.SysFont('Comforter Brush Regular', 20)
+
+sunsNum = 1000
