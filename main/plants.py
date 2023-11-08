@@ -4,16 +4,26 @@ import pygame
 import random
 
 class plant:
-    def __init__(self, color, colorAlpha, pos, cost):
+    def __init__(self, color, colorAlpha, pos, cost, health):
         self.color          = color
         self.colorAlpha     = colorAlpha
         self.pos            = pos
         self.cost           = cost
+        self.health         = health
+        self.life           = True
+    
+    def hit(self, damage):
+        self.health -= damage
+        if self.health <= 0:
+            self.dead()
+    
+    def dead(self):
+        self.life = False
         
 class peeShoter(plant):
-    def __init__(self, damage:int, color, shootLength:int, interval:datetime.timedelta, colorOfBullet:tuple, pos:list, speedOfBullet, colorAlpha, cost):
+    def __init__(self, damage:int, color, shootLength:int, interval:datetime.timedelta, colorOfBullet:tuple, pos:list, speedOfBullet, colorAlpha, cost, health):
         self.bullets = []
-        plant.__init__(self, color, colorAlpha, pos, cost)
+        super().__init__(color, colorAlpha, pos, cost, health)
         
         self.damage         = damage
         self.time1          = datetime.datetime.now()
@@ -46,8 +56,8 @@ class peeShoter(plant):
         """
         
 class sunFlower(plant):
-    def __init__(self, color, interval:datetime.timedelta, interval2:datetime.timedelta, textureOfSun, pos:list, colorAlpha, cost, produces):
-        plant.__init__(self, color, colorAlpha, pos, cost)
+    def __init__(self, color, interval:datetime.timedelta, interval2:datetime.timedelta, textureOfSun, pos:list, colorAlpha, cost, produces, health):
+        super().__init__(color, colorAlpha, pos, cost, health)
         
         self.sun                = []
         self.time1              = datetime.datetime.now()

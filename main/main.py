@@ -11,8 +11,8 @@ grid = list([list([0 for i in range(columns)]) for j in range(rows)])
 
 listOfPlants = list([0 for i in range(columns)])
 
-listOfPlants[0] = plants.peeShoter(20, peashooterSurf, shootLength, incrementOfPeahooter, (200, 200, 200), [0, 0], 100, peashooterSurfAlpha, costOfPeaShooter)
-listOfPlants[1] = plants.sunFlower(sunflowerSurf, incrementOfSunflower, incrementOfSunDead, sunSurf, [0, 0], sunflowerSurfAlpha, costOfSunflower, producesOfSunflower)
+listOfPlants[0] = plants.peeShoter(20, peashooterSurf, shootLength, incrementOfPeahooter, (200, 200, 200), [0, 0], 100, peashooterSurfAlpha, costOfPeaShooter, healthOfPeashooter)
+listOfPlants[1] = plants.sunFlower(sunflowerSurf, incrementOfSunflower, incrementOfSunDead, sunSurf, [0, 0], sunflowerSurfAlpha, costOfSunflower, producesOfSunflower, healthOfSunflower)
 
 select = 0
 
@@ -21,6 +21,8 @@ tmpTime = 0
 clock = pygame.time.Clock()
 
 click = True
+
+zombies = []
 
 while True:
     click = False
@@ -62,9 +64,9 @@ while True:
                         select = 0
                     elif sunsNum >= listOfPlants[iX].cost:
                         if type(listOfPlants[iX]) == plants.peeShoter:
-                            select = plants.peeShoter(20, peashooterSurf, shootLength, incrementOfPeahooter, (200, 200, 200), [0, 0], 100, peashooterSurfAlpha, costOfPeaShooter)
+                            select = plants.peeShoter(20, peashooterSurf, shootLength, incrementOfPeahooter, (200, 200, 200), [0, 0], 100, peashooterSurfAlpha, costOfPeaShooter, healthOfSunflower)
                         if type(listOfPlants[iX]) == plants.sunFlower:
-                            select = plants.sunFlower(sunflowerSurf, incrementOfSunflower, incrementOfSunDead, sunSurf, [0, 0], sunflowerSurfAlpha, costOfSunflower, producesOfSunflower)
+                            select = plants.sunFlower(sunflowerSurf, incrementOfSunflower, incrementOfSunDead, sunSurf, [0, 0], sunflowerSurfAlpha, costOfSunflower, producesOfSunflower, healthOfSunflower)
                 except:
                     pass
             else:
@@ -125,7 +127,10 @@ while True:
         for i in range(len(grid)):
             for j in range(len(grid[i])): 
                 if grid[i][j] != 0:
-                    grid[i][j].update(sc)
+                    if grid[i][j].life == False:
+                        grid[i][j] = 0
+                    else:
+                        grid[i][j].update(sc)
                 
         if select != 0:
             try:

@@ -81,3 +81,12 @@ marginLeftOfTextMenu1 = 0
 marginTopOfTextMenu1 = 60
 marginLeftOfTextMenu2 = 0
 marginTopOfTextMenu2 = 125
+
+widthOfZombie = widthOfGrid
+heightOfZombie = heightOfGrid * 1.8
+
+damageOfPeashooter = 10
+damageOfZombieDefault = 2
+
+healthOfPeashooter = 20
+healthOfSunflower = 20
