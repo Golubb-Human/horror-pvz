@@ -33,7 +33,8 @@ class peeShoter(plant):
                         del self.bullets[i]
                     else:
                         self.bullets[i][0] += (self.time3 * self.speedOfBullet).total_seconds()
-                        pygame.draw.circle(sc, self.colorOfBullet, self.bullets[i], 7)
+                        if self.bullets[i][0] < width and self.bullets[i][0] >= 0 and self.bullets[i][1] < height and self.bullets[i][1] >= 0:
+                            pygame.draw.circle(sc, self.colorOfBullet, self.bullets[i], 7)
                 except IndexError:
                     pass
             
@@ -52,9 +53,9 @@ class sunFlower(plant):
         self.time1              = datetime.datetime.now()
         self.interval           = interval
         self.interval2          = interval2
-        self.time2              = self.time1 + self.interval
+        self.time2              = self.time1 + (self.interval + datetime.timedelta(seconds=(random.random() * 2 - 1) * 5))
         self.textureOfSun       = textureOfSun
-        self.time3              = 0
+        self.time3              = self.time1 + (self.interval2 + datetime.timedelta(seconds=(random.random() * 2 - 1) * 2))
         self.produces           = produces
     
     def update(self, sc):

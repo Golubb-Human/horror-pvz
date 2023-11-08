@@ -84,7 +84,6 @@ while True:
                     for i in grid:
                         for j in i:
                             if type(j) == plants.sunFlower:
-                                print(len(j.sun), mousePos, j.sun)
                                 if len(j.sun) == 2:
                                     if mousePos[0] < j.sun[0] + widthOfSun and mousePos[0] >= j.sun[0] and mousePos[1] < j.sun[1] + heightOfSun and mousePos[1] >= j.sun[1]:
                                         j.sun = []
@@ -140,5 +139,14 @@ while True:
     else:
         sc.blit(pygame.transform.scale(stopMenuSurf, (stopMenuWidth, stopMenuHeight)), (width/2 - stopMenuWidth / 2,
                                                                                         height/2 - stopMenuHeight / 2)) 
+        menuSurface1 = sunsNumFont.render(menuText1, False, (0, 0, 0))
+        menuTextRect1 = menuSurface1.get_rect(center=(width / 2 + marginLeftOfTextMenu1,
+                                                      height / 2 - stopMenuHeight / 2 + marginTopOfTextMenu1))
+        sc.blit(menuSurface1, menuTextRect1)
+        
+        menuSurface2 = sunsNumFont.render(menuText2, False, (0, 0, 0))
+        menuTextRect2 = menuSurface2.get_rect(center=(width / 2 + marginLeftOfTextMenu2,
+                                                      height / 2 - stopMenuHeight / 2 + marginTopOfTextMenu2))
+        sc.blit(menuSurface2, menuTextRect2)
                
     pygame.display.update()

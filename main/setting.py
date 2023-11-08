@@ -67,7 +67,17 @@ timeStop = False
 
 sunsNumFont = pygame.font.SysFont('Comforter Brush Regular', 40)
 costFont = pygame.font.SysFont('Comforter Brush Regular', 20)
+menuFont = pygame.font.SysFont('Comforter Brush Regular', 20)
+menuFont2 = pygame.font.SysFont('Comforter Brush Regular', 20)
 
 producesOfSunflower = 25
 
-sunsNum = 100
+sunsNum = 10000
+
+menuText1 = "toMenu"
+menuText2 = "back"
+
+marginLeftOfTextMenu1 = 0
+marginTopOfTextMenu1 = 60
+marginLeftOfTextMenu2 = 0
+marginTopOfTextMenu2 = 125
