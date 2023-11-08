@@ -45,7 +45,7 @@ class peeShoter(plant):
         """
         
 class sunFlower(plant):
-    def __init__(self, color, interval:datetime.timedelta, interval2:datetime.timedelta, textureOfSun, pos:list, colorAlpha, cost):
+    def __init__(self, color, interval:datetime.timedelta, interval2:datetime.timedelta, textureOfSun, pos:list, colorAlpha, cost, produces):
         plant.__init__(self, color, colorAlpha, pos, cost)
         
         self.sun                = []
@@ -54,6 +54,8 @@ class sunFlower(plant):
         self.interval2          = interval2
         self.time2              = self.time1 + self.interval
         self.textureOfSun       = textureOfSun
+        self.time3              = 0
+        self.produces           = produces
     
     def update(self, sc):
         self.time1 = datetime.datetime.now()

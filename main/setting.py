@@ -68,4 +68,6 @@ timeStop = False
 sunsNumFont = pygame.font.SysFont('Comforter Brush Regular', 40)
 costFont = pygame.font.SysFont('Comforter Brush Regular', 20)
 
-sunsNum = 1000
+producesOfSunflower = 25
+
+sunsNum = 100

@@ -12,7 +12,7 @@ grid = list([list([0 for i in range(columns)]) for j in range(rows)])
 listOfPlants = list([0 for i in range(columns)])
 
 listOfPlants[0] = plants.peeShoter(20, peashooterSurf, shootLength, incrementOfPeahooter, (200, 200, 200), [0, 0], 100, peashooterSurfAlpha, costOfPeaShooter)
-listOfPlants[1] = plants.sunFlower(sunflowerSurf, incrementOfSunflower, incrementOfSunDead, sunSurf, [0, 0], sunflowerSurfAlpha, costOfSunflower)
+listOfPlants[1] = plants.sunFlower(sunflowerSurf, incrementOfSunflower, incrementOfSunDead, sunSurf, [0, 0], sunflowerSurfAlpha, costOfSunflower, producesOfSunflower)
 
 select = 0
 
@@ -39,10 +39,15 @@ while True:
                 for i in range(len(grid)):
                     for j in range(len(grid[i])):
                         if not timeStop:
+                                tmpTime = datetime.datetime.now()
+                        else:
                             try:
-                                tmpTime = grid[i][j]
+                               grid[i][j].time1 += datetime.datetime.now() - tmpTime
+                               grid[i][j].time2 += datetime.datetime.now() - tmpTime
+                               grid[i][j].time3 += datetime.datetime.now() - tmpTime
                             except Exception as e:
                                 pass
+                            
                 timeStop = not(timeStop)
     if (not timeStop):
         
@@ -52,13 +57,16 @@ while True:
             iX = (mousePos[0]-marginLeftOfListOfPlants - marginLeftOfListOfPlantsEvery)/(widthOfListOfPlants+marginLeftOfListOfPlantsEvery)
             if int(iX + 0.25) != int(iX)+1 and mousePos[1] > marginTopOfListOfPlants and mousePos[1] < marginTopOfListOfPlants + heightOfListOfPlants and iX >= 0 and iX < len(listOfPlants):
                 iX = int(iX)
-                if select != 0:
-                    select = 0
-                elif sunsNum >= listOfPlants[iX].cost:
-                    if type(listOfPlants[iX]) == plants.peeShoter:
+                try:
+                    if select != 0:
+                        select = 0
+                    elif sunsNum >= listOfPlants[iX].cost:
+                        if type(listOfPlants[iX]) == plants.peeShoter:
                             select = plants.peeShoter(20, peashooterSurf, shootLength, incrementOfPeahooter, (200, 200, 200), [0, 0], 100, peashooterSurfAlpha, costOfPeaShooter)
-                    if type(listOfPlants[iX]) == plants.sunFlower:
-                        select = plants.sunFlower(sunflowerSurf, incrementOfSunflower, incrementOfSunDead, sunSurf, [0, 0], sunflowerSurfAlpha, costOfSunflower)
+                        if type(listOfPlants[iX]) == plants.sunFlower:
+                            select = plants.sunFlower(sunflowerSurf, incrementOfSunflower, incrementOfSunDead, sunSurf, [0, 0], sunflowerSurfAlpha, costOfSunflower, producesOfSunflower)
+                except:
+                    pass
             else:
                 if select != 0:
                     try:
@@ -72,6 +80,15 @@ while True:
                     except IndexError:
                         pass
                     select = 0
+                else:
+                    for i in grid:
+                        for j in i:
+                            if type(j) == plants.sunFlower:
+                                print(len(j.sun), mousePos, j.sun)
+                                if len(j.sun) == 2:
+                                    if mousePos[0] < j.sun[0] + widthOfSun and mousePos[0] >= j.sun[0] and mousePos[1] < j.sun[1] + heightOfSun and mousePos[1] >= j.sun[1]:
+                                        j.sun = []
+                                        sunsNum += j.produces
         
         
         if select != 0:
@@ -108,10 +125,8 @@ while True:
             
         for i in range(len(grid)):
             for j in range(len(grid[i])): 
-                try:
+                if grid[i][j] != 0:
                     grid[i][j].update(sc)
-                except AttributeError:
-                    pass
                 
         if select != 0:
             try:
