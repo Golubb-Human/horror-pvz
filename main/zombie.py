@@ -1,5 +1,6 @@
 import setting
 import datetime
+import random
 
 class zombie:
     def __init__(self, health, damage, interval:datetime.timedelta, color, pos, speed):
@@ -10,6 +11,7 @@ class zombie:
         self.pos        = pos
         self.time1      = datetime.datetime.now()
         self.speed      = speed
+        self.speed     += speed * random.random() * 2 - 1 / 5
         self.go         = True
         self.life       = True
     

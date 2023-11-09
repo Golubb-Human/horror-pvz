@@ -40,7 +40,7 @@ class peeShoter(plant):
             if self.pos != [0, 0]:
                 try:
                     for j in range(len(zombies)):
-                        if self.bullets[i][0] >= zombies[j].pos[0] and self.bullets[i][1] >= zombies[j].pos[1] - heightOfGrid and self.bullets[i][0] < zombies[j].pos[0] + widthOfZombie and self.bullets[i][1] < zombies[j].pos[1] - heightOfGrid + heightOfZombie:
+                        if self.bullets[i][0] >= zombies[j].pos[0] and self.bullets[i][1] >= zombies[j].pos[1] and self.bullets[i][0] < zombies[j].pos[0] + widthOfZombie and self.bullets[i][1] < zombies[j].pos[1] - heightOfGrid + heightOfZombie:
                             zombies[i].hit(self.damage)
                             del self.bullets[i]
                     if (self.bullets[i][0] - marginLeftOfGrid) / widthOfGrid - (self.pos[0] - marginLeftOfGrid) / widthOfGrid >= self.shootLength:
@@ -52,10 +52,17 @@ class peeShoter(plant):
                 except IndexError:
                     pass
                     
-        
-        if self.time1 > self.time2:
-            self.bullets.append((self.pos).copy())
-            self.time2 = self.time1 + self.interval
+        if self.pos != [0, 0]:
+            for j in range(len(zombies)):
+                for i in range(len(self.bullets)):
+                    if self.bullets[i][0] >= zombies[j].pos[0] and self.bullets[i][1] >= zombies[j].pos[1] and self.bullets[i][0] < zombies[j].pos[0] + widthOfZombie and self.bullets[i][1] < zombies[j].pos[1] - heightOfGrid + heightOfZombie:
+                        zombies[i].hit(self.damage)
+                        del self.bullets[i]
+                        break
+                if self.time1 > self.time2:
+                    if self.pos[1] >= zombies[j].pos[1] and self.pos[1] < zombies[j].pos[1] - heightOfGrid + heightOfZombie and zombies[j].pos[0] > self.pos[0]:
+                        self.bullets.append((self.pos).copy())
+                        self.time2 = self.time1 + self.interval
         """
         shooting
         """

@@ -52,14 +52,24 @@ while True:
                                grid[i][j].time3 += datetime.datetime.now() - tmpTime
                             except Exception as e:
                                 pass
+                for i in range(len(zombies)):
+                    if not timeStop:
+                            tmpTime = datetime.datetime.now()
+                    else:
+                        try:
+                            zombies[i].time1 += datetime.datetime.now() - tmpTime
+                            # grid[i][j].time2 += datetime.datetime.now() - tmpTime
+                        except Exception as e:
+                            pass
                             
                 timeStop = not(timeStop)
     if (not timeStop):
         if not Level.end:
             ret = Level.update(zombieCosts)
             if ret != None:
-                iRand = random.randint(0, rows)
-                zombies.append(ret(healthOfDefaultZombie, damageOfZombieDefault, intervalOfZombieDefault, (100,175,63), [width,  marginTopOfGrid + heightOfGrid * iRand + marginTopOfGrid2*(iRand+1)], speedOfZombieDefault))
+                for i in ret:
+                    iRand = random.randint(0, rows-1)
+                    zombies.append(i(healthOfDefaultZombie, damageOfZombieDefault, intervalOfZombieDefault, (100,175,63), [width,  marginTopOfGrid + heightOfGrid * iRand + marginTopOfGrid2*(iRand+1)], speedOfZombieDefault))
         
         mousePos = pygame.mouse.get_pos()
         sc.blit(backGround, (-leftCameraX, 0))
@@ -72,7 +82,7 @@ while True:
                         select = 0
                     elif sunsNum >= listOfPlants[iX].cost:
                         if type(listOfPlants[iX]) == plants.peeShoter:
-                            select = plants.peeShoter(20, peashooterSurf, shootLength, incrementOfPeahooter, (200, 200, 200), [0, 0], 100, peashooterSurfAlpha, costOfPeaShooter, healthOfSunflower)
+                            select = plants.peeShoter(damageOfPeashooter, peashooterSurf, shootLength, incrementOfPeahooter, (200, 200, 200), [0, 0], 100, peashooterSurfAlpha, costOfPeaShooter, healthOfSunflower)
                         if type(listOfPlants[iX]) == plants.sunFlower:
                             select = plants.sunFlower(sunflowerSurf, incrementOfSunflower, incrementOfSunDead, sunSurf, [0, 0], sunflowerSurfAlpha, costOfSunflower, producesOfSunflower, healthOfSunflower)
                 except:
@@ -133,11 +143,15 @@ while True:
                     pass
         
         for i in range(len(zombies)):
-            zombies[i].update(grid)
-            if zombies[i].life == False:
-                del zombies[i]
-            else:
-                pygame.draw.rect(sc, zombies[i].color, (zombies[i].pos[0], zombies[i].pos[1] - heightOfGrid, widthOfZombie, heightOfZombie))
+            try:
+                zombies[i].update(grid)
+                if zombies[i].life == False:
+                    del zombies[i]
+                else:
+                    pygame.draw.rect(sc, zombies[i].color, (zombies[i].pos[0], zombies[i].pos[1] - heightOfGrid, widthOfZombie, heightOfZombie))
+                    pygame.draw.rect(sc, (0, 0, 0), (zombies[i].pos[0], zombies[i].pos[1] - heightOfGrid, widthOfZombie, heightOfZombie), 2)
+            except IndexError:
+                pass
             
         for i in range(len(grid)):
             for j in range(len(grid[i])): 
@@ -170,3 +184,4 @@ while True:
         sc.blit(menuSurface2, menuTextRect2)
                
     pygame.display.update()
+    print(zombies)

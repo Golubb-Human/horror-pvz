@@ -19,7 +19,7 @@ class level:
         """
     
     def update(self, zombieCosts):
-        ret = 0
+        ret = []
         self.time1 = datetime.datetime.now()
         if self.time1 > self.time2:
             while True:
@@ -33,7 +33,7 @@ class level:
                     break
                 randomZombieCost = random.choice(zombieCosts)
                 if self.coins >= randomZombieCost[1]:
-                    ret = randomZombieCost[0]
+                    ret.append(randomZombieCost[0])
                     self.coins -= randomZombieCost[1]
             
         for i in self.waves.keys():
