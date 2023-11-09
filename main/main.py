@@ -2,6 +2,9 @@ import pygame
 from setting import *
 import plants
 import datetime
+import level
+import zombie
+import random
 
 pygame.init()
 
@@ -52,6 +55,11 @@ while True:
                             
                 timeStop = not(timeStop)
     if (not timeStop):
+        if not Level.end:
+            ret = Level.update(zombieCosts)
+            if ret != None:
+                iRand = random.randint(0, rows)
+                zombies.append(ret(healthOfDefaultZombie, damageOfZombieDefault, intervalOfZombieDefault, (100,175,63), [width,  marginTopOfGrid + heightOfGrid * iRand + marginTopOfGrid2*(iRand+1)], speedOfZombieDefault))
         
         mousePos = pygame.mouse.get_pos()
         sc.blit(backGround, (-leftCameraX, 0))
@@ -123,6 +131,13 @@ while True:
                                                                                                     marginTopOfGrid + heightOfGrid * i + marginTopOfGrid2*(i+1)))
                 except AttributeError:
                     pass
+        
+        for i in range(len(zombies)):
+            zombies[i].update(grid)
+            if zombies[i].life == False:
+                del zombies[i]
+            else:
+                pygame.draw.rect(sc, zombies[i].color, (zombies[i].pos[0], zombies[i].pos[1] - heightOfGrid, widthOfZombie, heightOfZombie))
             
         for i in range(len(grid)):
             for j in range(len(grid[i])): 
@@ -130,7 +145,7 @@ while True:
                     if grid[i][j].life == False:
                         grid[i][j] = 0
                     else:
-                        grid[i][j].update(sc)
+                        grid[i][j].update(sc, zombies)
                 
         if select != 0:
             try:

@@ -1,5 +1,7 @@
 import datetime
 import pygame
+import level
+import zombie
 
 pygame.init()
 
@@ -86,7 +88,21 @@ widthOfZombie = widthOfGrid
 heightOfZombie = heightOfGrid * 1.8
 
 damageOfPeashooter = 10
-damageOfZombieDefault = 2
+damageOfZombieDefault = 0.01
 
 healthOfPeashooter = 20
 healthOfSunflower = 20
+
+healthOfDefaultZombie = 20
+
+intervalOfZombieDefault = datetime.timedelta(seconds=1)
+
+zombieCosts = [[zombie.defaultZombie, 2]]
+
+Level = level.level({0: [4, datetime.timedelta(seconds=2), "small"], 
+                      1: [6, datetime.timedelta(seconds=7), "small"], 
+                      2: [12, datetime.timedelta(seconds=5), "big"], 
+                      3: [8, datetime.timedelta(seconds=4), "small"], 
+                      4: [4, datetime.timedelta(seconds=10), "small"]})
+
+speedOfZombieDefault = 50

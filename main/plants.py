@@ -33,12 +33,16 @@ class peeShoter(plant):
         self.colorOfBullet  = colorOfBullet
         self.speedOfBullet  = speedOfBullet
     
-    def update(self, sc):
+    def update(self, sc, zombies):
         self.time3 = datetime.datetime.now() - self.time1 
         self.time1 = datetime.datetime.now()
         for i in range(len(self.bullets)):
             if self.pos != [0, 0]:
                 try:
+                    for j in range(len(zombies)):
+                        if self.bullets[i][0] >= zombies[j].pos[0] and self.bullets[i][1] >= zombies[j].pos[1] - heightOfGrid and self.bullets[i][0] < zombies[j].pos[0] + widthOfZombie and self.bullets[i][1] < zombies[j].pos[1] - heightOfGrid + heightOfZombie:
+                            zombies[i].hit(self.damage)
+                            del self.bullets[i]
                     if (self.bullets[i][0] - marginLeftOfGrid) / widthOfGrid - (self.pos[0] - marginLeftOfGrid) / widthOfGrid >= self.shootLength:
                         del self.bullets[i]
                     else:
@@ -47,7 +51,8 @@ class peeShoter(plant):
                             pygame.draw.circle(sc, self.colorOfBullet, self.bullets[i], 7)
                 except IndexError:
                     pass
-            
+                    
+        
         if self.time1 > self.time2:
             self.bullets.append((self.pos).copy())
             self.time2 = self.time1 + self.interval
@@ -68,7 +73,7 @@ class sunFlower(plant):
         self.time3              = self.time1 + (self.interval2 + datetime.timedelta(seconds=(random.random() * 2 - 1) * 2))
         self.produces           = produces
     
-    def update(self, sc):
+    def update(self, sc, zombies):
         self.time1 = datetime.datetime.now()
         if self.sun != []:
             sc.blit(pygame.transform.scale(self.textureOfSun, (widthOfSun, heightOfSun)), self.sun)

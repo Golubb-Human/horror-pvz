@@ -1,5 +1,5 @@
+import setting
 import datetime
-from setting import *
 
 class zombie:
     def __init__(self, health, damage, interval:datetime.timedelta, color, pos, speed):
@@ -10,17 +10,32 @@ class zombie:
         self.pos        = pos
         self.time1      = datetime.datetime.now()
         self.speed      = speed
+        self.go         = True
+        self.life       = True
     
-    def update(self, grid, sc):
-        j = (self.pos[0] - marginLeftOfGrid) / widthOfGrid
-        i = (self.pos[1] - marginTopOfGrid) / (heightOfGrid+marginTopOfGrid2)
+    def update(self, grid):
+        self.go = True
+        j = (self.pos[0] - setting.marginLeftOfGrid) / setting.widthOfGrid
+        i = (self.pos[1] - setting.marginTopOfGrid) / (setting.heightOfGrid+setting.marginTopOfGrid2)
         if i >= 0 and j >= 0 and i < len(grid) and j < len(grid[0]):
-            if grid[int(i)][j] != 0:
-                grid.hit(self.damage)
-            else:
-                self.pos[0] -= (self.time1 - datetime.datetime.now() * self.speed).total_seconds()
-                pygame.draw.rect(sc, self.color, (self.pos[0] - widthOfZombie / 2, self.pos[1] - heightOfZombie / 2))
+            if grid[int(i)][int(j)] != 0:
+                grid[int(i)][int(j)].hit(self.damage)
+                self.go = False
                 self.time1 = datetime.datetime.now()
+        if self.go:
+            self.time1 
+            self.pos[0] -= ((datetime.datetime.now() - self.time1)).total_seconds() * self.speed
+            # pygame.draw.rect(sc, self.color, (self.pos[0] - setting.widthOfZombie / 2, self.pos[1] - setting.heightOfZombie / 2))
+            self.time1 = datetime.datetime.now()
+    
+    def hit(self, damage):
+        self.health -= damage
+        if self.health <= 0:
+            self.dead()
+    
+    def dead(self):
+        self.life = False
+        
 
 class defaultZombie(zombie):
     def __init__(self, health, damage, interval:datetime.timedelta, color, pos, speed):
