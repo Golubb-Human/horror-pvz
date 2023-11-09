@@ -103,13 +103,13 @@ Level = level.level({0: [2, datetime.timedelta(seconds=50), "small"],
                       1: [4, datetime.timedelta(seconds=30), "small"], 
                       2: [6, datetime.timedelta(seconds=20), "small"],  
                       3: [16, datetime.timedelta(seconds=30), "big"],
+                      4: [6, datetime.timedelta(seconds=10), "small"], 
                       5: [6, datetime.timedelta(seconds=10), "small"], 
-                      5: [6, datetime.timedelta(seconds=10), "small"], 
-                      5: [6, datetime.timedelta(seconds=10), "small"],   
-                      4: [24, datetime.timedelta(seconds=30), "big"],  
-                      5: [6, datetime.timedelta(seconds=3), "small"], 
-                      5: [6, datetime.timedelta(seconds=3), "small"], 
-                      6: [36, datetime.timedelta(seconds=15), "big"], 
-                      7: [4, datetime.timedelta(seconds=10), "small"]})
+                      6: [6, datetime.timedelta(seconds=10), "small"],   
+                      7: [40, datetime.timedelta(seconds=30), "big"],  
+                      8: [18, datetime.timedelta(seconds=3), "small"], 
+                      9: [18, datetime.timedelta(seconds=3), "small"], 
+                      10: [80, datetime.timedelta(seconds=15), "big"], 
+                      11: [40, datetime.timedelta(seconds=10), "small"]})
 
 speedOfZombieDefault = 10
