@@ -9,14 +9,19 @@ width, height = 640, 480
 
 sc = pygame.display.set_mode((width, height))
 
-marginLeftOfSunsNum = 10
-marginTopOfSunsNum = 20
+marginLeftOfSunsNum = 26
+marginTopOfSunsNum = 40
 
-marginLeftOfListOfPlants = marginLeftOfSunsNum + 70
+marginLeftOfListOfPlants = marginLeftOfSunsNum + 50
 marginLeftOfListOfPlantsEvery = 10
-marginTopOfListOfPlants = 5
+marginTopOfListOfPlants = 30
 widthOfListOfPlants = 50
 heightOfListOfPlants = 70
+
+marginLeftOfBackGroundOfListOfPlants = 20
+marginTopOfBackGroundOfListOfPlants = 20
+widthOfBackGroundOfListOfPlants = 260
+heightOfBackGroundOfListOfPlants = 90
 
 marginLeftOfGrid = 130
 marginTopOfGrid = marginTopOfListOfPlants + heightOfListOfPlants + 2
@@ -40,6 +45,7 @@ peashooterSurf = pygame.image.load("textures\\peashooter.png")
 sunflowerSurf = pygame.image.load("textures\\sunflower.png")
 sunSurf = pygame.image.load("textures\\sun.png")
 backGround = pygame.image.load("textures\\background.png")
+backGroundOfListOfPlantsSurf = pygame.image.load("textures\\backGroundOfListOfPlants.png")
 
 alpha = 100
 peashooterSurfAlpha = peashooterSurf.convert_alpha()

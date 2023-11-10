@@ -57,7 +57,7 @@ while True:
                 else:
                     print(datetime.datetime.now() - tmpTime)
                     try:
-                        print("wave: ", Level.wave+1, ", numOfZombie: ", len(zombies), ", timeOfSunflower[0][0]: ", grid[0][0].time2 - grid[0][0].time1, ", level: ", Level.time2 - Level.time1)
+                        print("wave: ", Level.wave+1, ", numOfZombie: ", len(zombies), ", level: ", Level.time2 - Level.time1)
                     except Exception as e:
                         print(e)
                     for i in range(len(grid)):
@@ -91,6 +91,7 @@ while True:
         
         mousePos = pygame.mouse.get_pos()
         sc.blit(backGround, (-leftCameraX, 0))
+        sc.blit(pygame.transform.scale(backGroundOfListOfPlantsSurf, (widthOfBackGroundOfListOfPlants, heightOfBackGroundOfListOfPlants)), (marginLeftOfBackGroundOfListOfPlants, marginTopOfBackGroundOfListOfPlants))
         if click:
             iX = (mousePos[0]-marginLeftOfListOfPlants - marginLeftOfListOfPlantsEvery)/(widthOfListOfPlants+marginLeftOfListOfPlantsEvery)
             if int(iX + 0.25) != int(iX)+1 and mousePos[1] > marginTopOfListOfPlants and mousePos[1] < marginTopOfListOfPlants + heightOfListOfPlants and iX >= 0 and iX < len(listOfPlants):
@@ -185,7 +186,7 @@ while True:
                                                                                     mousePos[1]-heightOfListOfPlants/2))
             except:
                 pass
-        sunsNumSurface = sunsNumFont.render(str(sunsNum), False, (0, 0, 0), (255, 255, 255))
+        sunsNumSurface = sunsNumFont.render(str(sunsNum), False, (0, 0, 0))
         
         sc.blit(sunsNumSurface, (marginLeftOfSunsNum, marginTopOfSunsNum))
     else:
