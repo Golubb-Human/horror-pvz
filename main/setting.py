@@ -74,7 +74,7 @@ menuFont2 = pygame.font.SysFont('Comforter Brush Regular', 20)
 
 producesOfSunflower = 50
 
-sunsNum = 100
+sunsNum = 125
 
 menuText1 = "toMenu"
 menuText2 = "back"
@@ -87,7 +87,7 @@ marginTopOfTextMenu2 = 125
 widthOfZombie = widthOfGrid
 heightOfZombie = heightOfGrid * 1.8
 
-damageOfPeashooter = 5
+damageOfPeashooter = 7
 damageOfZombieDefault = 0.01
 
 healthOfPeashooter = 20
@@ -102,14 +102,18 @@ zombieCosts = [[zombie.defaultZombie, 2]]
 Level = level.level({0: [2, datetime.timedelta(seconds=50), "small"], 
                       1: [4, datetime.timedelta(seconds=30), "small"], 
                       2: [6, datetime.timedelta(seconds=20), "small"],  
-                      3: [16, datetime.timedelta(seconds=30), "big"],
+                      3: [24, datetime.timedelta(seconds=30), "big"],
                       4: [6, datetime.timedelta(seconds=10), "small"], 
                       5: [6, datetime.timedelta(seconds=10), "small"], 
-                      6: [6, datetime.timedelta(seconds=10), "small"],   
+                      6: [12, datetime.timedelta(seconds=10), "small"],   
                       7: [40, datetime.timedelta(seconds=30), "big"],  
-                      8: [18, datetime.timedelta(seconds=3), "small"], 
-                      9: [18, datetime.timedelta(seconds=3), "small"], 
-                      10: [80, datetime.timedelta(seconds=15), "big"], 
-                      11: [40, datetime.timedelta(seconds=10), "small"]})
+                      8: [20, datetime.timedelta(seconds=3), "small"], 
+                      9: [20, datetime.timedelta(seconds=3), "small"], 
+                      10: [64, datetime.timedelta(seconds=15), "big"], 
+                      11: [40, datetime.timedelta(seconds=10), "small"], 
+                      12: [40, datetime.timedelta(seconds=3), "small"], 
+                      13: [64, datetime.timedelta(seconds=3), "small"], 
+                      14: [64, datetime.timedelta(seconds=3), "small"], 
+                      15: [64, datetime.timedelta(seconds=2), "small"]})
 
 speedOfZombieDefault = 10

@@ -6,6 +6,16 @@ import level
 import zombie
 import random
 
+def sortByPosition(List):
+    List_ = List.copy()
+    for i in range(len(List_)):
+        for j in range(len(List_)-i-1):
+            if List_[j].pos[0] > List_[j+1].pos[0]:
+                List_[j], List_[j+1] = List_[j+1], List_[j]
+    
+    return List_
+
+
 pygame.init()
 
 pygame.font.init()
@@ -19,7 +29,7 @@ listOfPlants[1] = plants.sunFlower(sunflowerSurf, incrementOfSunflower, incremen
 
 select = 0
 
-tmpTime = 0
+tmpTime = datetime.datetime.now()
 
 clock = pygame.time.Clock()
 
@@ -32,6 +42,7 @@ while True:
     # pygame.display.set_caption(str(clock.get_fps()))
     if not pygame.key.get_focused():
         timeStop = True
+        tmpTime = datetime.datetime.now()
     for e in pygame.event.get():
         if e.type == pygame.QUIT:
             exit()
@@ -41,26 +52,32 @@ while True:
                 
         if e.type == pygame.KEYDOWN:
             if e.key == pygame.K_ESCAPE:
-                for i in range(len(grid)):
-                    for j in range(len(grid[i])):
+                if not timeStop:
+                    tmpTime = datetime.datetime.now()
+                else:
+                    print(datetime.datetime.now() - tmpTime)
+                    try:
+                        print("wave: ", Level.wave+1, ", numOfZombie: ", len(zombies), ", timeOfSunflower[0][0]: ", grid[0][0].time2 - grid[0][0].time1, ", level: ", Level.time2 - Level.time1)
+                    except Exception as e:
+                        print(e)
+                    for i in range(len(grid)):
+                        for j in range(len(grid[i])):
+                                try:
+                                    grid[i][j].time1 = datetime.datetime.now()
+                                    grid[i][j].time2 += datetime.datetime.now() - tmpTime
+                                    grid[i][j].time3 += datetime.datetime.now() - tmpTime
+                                except Exception as e:
+                                    # print(e)
+                                    pass
+                    
+                    Level.time1 = datetime.datetime.now()
+                    Level.time2 += datetime.datetime.now() - tmpTime
+                    for i in range(len(zombies)):
                         if not timeStop:
-                                tmpTime = datetime.datetime.now()
-                        else:
-                            try:
-                               grid[i][j].time1 += datetime.datetime.now() - tmpTime
-                               grid[i][j].time2 += datetime.datetime.now() - tmpTime
-                               grid[i][j].time3 += datetime.datetime.now() - tmpTime
-                            except Exception as e:
-                                pass
-                for i in range(len(zombies)):
-                    if not timeStop:
                             tmpTime = datetime.datetime.now()
-                    else:
-                        try:
+                        else:
                             zombies[i].time1 += datetime.datetime.now() - tmpTime
                             # grid[i][j].time2 += datetime.datetime.now() - tmpTime
-                        except Exception as e:
-                            pass
                             
                 timeStop = not(timeStop)
     if (not timeStop):
@@ -70,6 +87,7 @@ while True:
                 for i in ret:
                     iRand = random.randint(0, rows-1)
                     zombies.append(i(healthOfDefaultZombie, damageOfZombieDefault, intervalOfZombieDefault, (100,175,63), [width,  marginTopOfGrid + heightOfGrid * iRand + marginTopOfGrid2*(iRand+1)], speedOfZombieDefault))
+        zombies = sortByPosition(zombies)
         
         mousePos = pygame.mouse.get_pos()
         sc.blit(backGround, (-leftCameraX, 0))
@@ -184,4 +202,3 @@ while True:
         sc.blit(menuSurface2, menuTextRect2)
                
     pygame.display.update()
-    print(zombies)
