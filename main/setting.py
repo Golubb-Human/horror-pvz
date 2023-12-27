@@ -18,13 +18,16 @@ marginTopOfListOfPlants = 30
 widthOfListOfPlants = 50
 heightOfListOfPlants = 70
 
+marginLeftOfCost = 7
+marginTopOfCost = 47
+
 marginLeftOfBackGroundOfListOfPlants = 20
 marginTopOfBackGroundOfListOfPlants = 20
 widthOfBackGroundOfListOfPlants = 260
 heightOfBackGroundOfListOfPlants = 90
 
 marginLeftOfGrid = 130
-marginTopOfGrid = marginTopOfListOfPlants + heightOfListOfPlants + 2
+marginTopOfGrid = 78
 marginTopOfGrid2 = 10
 widthOfGrid = 52
 heightOfGrid = 68 - marginTopOfGrid2
@@ -105,7 +108,7 @@ intervalOfZombieDefault = datetime.timedelta(seconds=1)
 
 zombieCosts = [[zombie.defaultZombie, 2]]
 
-Level = level.level({0: [2, datetime.timedelta(seconds=50), "small"], 
+Level = level.level({0: [2, datetime.timedelta(seconds=5), "small"], 
                       1: [4, datetime.timedelta(seconds=30), "small"], 
                       2: [6, datetime.timedelta(seconds=20), "small"],  
                       3: [24, datetime.timedelta(seconds=30), "big"],

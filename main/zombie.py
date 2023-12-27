@@ -11,7 +11,7 @@ class zombie:
         self.pos        = pos
         self.time1      = datetime.datetime.now()
         self.speed      = speed
-        self.speed     += speed * random.random() * 2 - 1 / 5
+        self.speed     += speed * (random.random() * 2 - 1) / 5
         self.go         = True
         self.life       = True
     
@@ -37,6 +37,11 @@ class zombie:
     
     def dead(self):
         self.life = False
+    
+    def timeReset(self, tmpTime):
+        self.time1 = datetime.datetime.now()
+        self.time2 += datetime.datetime.now() - tmpTime
+        self.time3 += datetime.datetime.now() - tmpTime
         
 
 class defaultZombie(zombie):

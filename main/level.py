@@ -8,8 +8,8 @@ class level:
         self.waves = waves
         self.wave  = 0
         self.coins = self.waves[self.wave][0]
-        self.time1 = datetime.datetime.now()
-        self.time2 = datetime.datetime.now() + self.waves[self.wave][1]
+        self.timeStartWave = datetime.datetime.now()
+        self.timeEndWave = datetime.datetime.now() + self.waves[self.wave][1]
         self.end   = False
         
         self.zombies = []
@@ -20,15 +20,15 @@ class level:
     
     def update(self, zombieCosts):
         ret = []
-        self.time1 = datetime.datetime.now()
-        if self.time1 > self.time2:
+        self.timeStartWave = datetime.datetime.now()
+        if self.timeStartWave > self.timeEndWave:
             while True:
                 if self.coins <= 0:
                     if self.wave + 1 == len(self.waves):
                         self.end = True
                     else:
                         self.wave += 1
-                        self.time2 = datetime.datetime.now() + self.waves[self.wave][1]
+                        self.timeEndWave = datetime.datetime.now() + self.waves[self.wave][1]
                     self.coins = self.waves[self.wave][0]
                     break
                 randomZombieCost = random.choice(zombieCosts)
