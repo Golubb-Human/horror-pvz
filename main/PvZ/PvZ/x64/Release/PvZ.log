@@ -1,0 +1,5 @@
+﻿  Grid.cpp
+C:\Users\Azat\Desktop\программы\horror-Pvz\horror-pvz\main\PvZ\PvZ\Grid.cpp(7,12): error C2511: void Grid::plant(Plant,int): перегруженная функция-член не найдена в "Grid"
+C:\Users\Azat\Desktop\программы\horror-Pvz\horror-pvz\main\PvZ\PvZ\Grid.h(4,7): message : см. объявление "Grid"
+  main.cpp
+  PeeShooter.cpp
