@@ -1,13 +1,20 @@
 #include "Plant.h"
 
-PeeShooter::PeeShooter() {
-	// settings
-	rechargeSeconds = 1.5;
-	damage = 20;
-	cost = 100;
-	health = 125;
+PeeShooter::PeeShooter(insts::Pos position = insts::Pos(0, 0)) { // !!!INDEX POSITION!!!
+	this->position = position;
+
+	health = maxHealth;
 }
 
 void PeeShooter::update() {
 	
 }
+
+void PeeShooter::shoot() {
+
+}
+
+void PeeShooter::moveBullets() { 
+
+}
+

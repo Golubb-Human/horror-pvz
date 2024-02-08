@@ -1,10 +1,12 @@
 ﻿#include <SFML/Graphics.hpp>
+#include "Draw.h"
+#include "Grid.h"
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+    Draw draw;
+    Grid grid(insts::Pos(9, 5));
+    sf::RenderWindow window(sf::VideoMode(640, 480), "Plants vs Zombies horror edition", sf::Style::Close);
 
     while (window.isOpen())
     {
@@ -15,8 +17,11 @@ int main()
                 window.close();
         }
 
-        window.clear();
-        window.draw(shape);
+        window.clear(sf::Color(100, 100, 100));
+        // drawing
+
+        draw.grid(&window, grid);
+
         window.display();
     }
 

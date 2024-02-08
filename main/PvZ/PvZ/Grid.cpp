@@ -1,7 +1,12 @@
 #include "Grid.h"
 
-Grid::Grid() {
-
+Grid::Grid(insts::Pos indexSize) {
+	for (int i = 0; i < indexSize.x; i++) {
+		grid.push_back({});
+		for (int j = 0; j < indexSize.y; j++) {
+			grid.at(i).push_back(nullptr);
+		}
+	}
 }
 
 void Grid::plant(Plant* plant, insts::Pos id) {
@@ -20,7 +25,7 @@ std::vector<std::vector<Plant*>> Grid::getGrid()
 void Grid::update() {
 	for (int i = 0; i < grid.size(); i++) {
 		for (int j = 0; j < grid.at(0).size(); j++) {
-			grid.at(i).at(j)->update(0);
+			grid.at(i).at(j)->update();
 		}
 	}
 }
