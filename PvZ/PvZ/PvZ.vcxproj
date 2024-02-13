@@ -138,6 +138,8 @@
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PeeShooter.cpp" />
+    <ClCompile Include="Plant.cpp" />
+    <ClCompile Include="Shooter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Draw.h" />

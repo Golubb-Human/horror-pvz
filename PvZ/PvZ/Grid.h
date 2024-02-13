@@ -2,8 +2,7 @@
 #include <vector>
 #include "Plant.h"
 #include "settings.h"
-class Grid
-{
+class Grid {
 private:
 	std::vector<std::vector<Plant*>> grid;
 public:

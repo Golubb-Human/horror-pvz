@@ -52,4 +52,5 @@ namespace insts { // instruments
 namespace stgs { // settings
 	static insts::Pos gridOffset(176, 79);
 	static insts::Pos gridTileSize(52, 68);
+	static insts::Pos numCels(9, 5);
 }

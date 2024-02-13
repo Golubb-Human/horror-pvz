@@ -29,11 +29,13 @@ void Draw::grid(Grid grid) {
 			} else {
 				insts::Pos position = insts::Pos(i, j) * stgs::gridTileSize + stgs::gridOffset;
 				squard.setPosition(position.vec2f());
+				this->plant(insts::Pos(i, j), grid);
 			}
 			window->draw(squard);
 		}
 	}
 }
+
 
 
 void Draw::background() {
@@ -43,4 +45,9 @@ void Draw::background() {
 
 void Draw::background(sf::Texture* texture) {
 	texture->update(*window);
+}
+
+
+void Draw::plant(insts::Pos index, Grid grid) {
+	grid.getGrid().at((int)index.x).at((int)index.y)->draw(window);
 }

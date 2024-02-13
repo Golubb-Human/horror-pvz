@@ -3,8 +3,7 @@
 #include "Grid.h"
 #include <vector>
 
-class Draw
-{
+class Draw {
 private:
 	sf::RenderWindow* window;
 	sf::Texture* backgroundTexture;
@@ -14,5 +13,6 @@ public:
 	void grid(Grid grid);
 	void background();
 	void background(sf::Texture* texture);
+	void plant(insts::Pos index, Grid grid);
 };
 
