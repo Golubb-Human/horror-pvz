@@ -1,0 +1,78 @@
+﻿  Plant.cpp
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(10,19): error C2398: Элемент "1": для преобразования из "float" в "T" требуется сужающее преобразование
+          with
+          [
+              T=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(11,19): error C2398: Элемент "2": для преобразования из "float" в "T" требуется сужающее преобразование
+          with
+          [
+              T=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(11,19): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(10,19): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(20,21): error C2398: Элемент "1": для преобразования из "float" в "T" требуется сужающее преобразование
+          with
+          [
+              T=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(21,21): error C2398: Элемент "2": для преобразования из "float" в "T" требуется сужающее преобразование
+          with
+          [
+              T=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(22,14): error C2398: Элемент "3": для преобразования из "float" в "T" требуется сужающее преобразование
+          with
+          [
+              T=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(23,14): error C2398: Элемент "4": для преобразования из "float" в "T" требуется сужающее преобразование
+          with
+          [
+              T=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(23,14): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(22,14): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(21,21): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(20,21): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+  Shooter.cpp
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(10,14): warning C4244: =: преобразование "Tx" в "float", возможна потеря данных
+          with
+          [
+              Tx=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(68,38): message : выполняется компиляция ссылки на экземпляр шаблон функции "insts::Pos::Pos<int,int>(Tx,Ty)"
+          with
+          [
+              Tx=int,
+              Ty=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(11,14): warning C4244: =: преобразование "Ty" в "float", возможна потеря данных
+          with
+          [
+              Ty=int
+          ]
