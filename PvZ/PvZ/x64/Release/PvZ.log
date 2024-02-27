@@ -1,7 +1,0 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(1096,5): error MSB6006: "link.exe" завершилась с кодом 1120.
-PeeShooter.obj : error LNK2001: неразрешенный внешний символ "public: static float Plant::maxHealth" (?maxHealth@Plant@@2MA).
-PeeShooter.obj : error LNK2001: неразрешенный внешний символ "public: static float Plant::downOffset" (?downOffset@Plant@@2MA).
-PeeShooter.obj : error LNK2001: неразрешенный внешний символ "public: static float Shooter::recharge" (?recharge@Shooter@@2MA).
-PeeShooter.obj : error LNK2001: неразрешенный внешний символ "public: static float Plant::cost" (?cost@Plant@@2MA).
-PeeShooter.obj : error LNK2001: неразрешенный внешний символ "public: static float Shooter::damage" (?damage@Shooter@@2MA).
-C:\Users\Azat\Desktop\программы\horror-Pvz\PvZ\x64\Release\PvZ.exe : fatal error LNK1120: неразрешенных внешних элементов: 5

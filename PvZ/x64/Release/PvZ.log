@@ -1,0 +1,128 @@
+﻿  Draw.cpp
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(10,14): warning C4244: =: преобразование "Tx" в "float", возможна потеря данных
+          with
+          [
+              Tx=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(81,38): message : выполняется компиляция ссылки на экземпляр шаблон функции "insts::Pos::Pos<int,int>(Tx,Ty)"
+          with
+          [
+              Tx=int,
+              Ty=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(11,14): warning C4244: =: преобразование "Ty" в "float", возможна потеря данных
+          with
+          [
+              Ty=int
+          ]
+  Grid.cpp
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Grid.cpp(13,9): warning C4244: аргумент: преобразование "float" в "const unsigned __int64", возможна потеря данных
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Grid.cpp(13,15): warning C4244: аргумент: преобразование "float" в "const unsigned __int64", возможна потеря данных
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Grid.cpp(17,9): warning C4244: аргумент: преобразование "float" в "const unsigned __int64", возможна потеря данных
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Grid.cpp(17,15): warning C4244: аргумент: преобразование "float" в "const unsigned __int64", возможна потеря данных
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(10,14): warning C4244: =: преобразование "Tx" в "float", возможна потеря данных
+          with
+          [
+              Tx=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(81,38): message : выполняется компиляция ссылки на экземпляр шаблон функции "insts::Pos::Pos<int,int>(Tx,Ty)"
+          with
+          [
+              Tx=int,
+              Ty=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(11,14): warning C4244: =: преобразование "Ty" в "float", возможна потеря данных
+          with
+          [
+              Ty=int
+          ]
+  PeeShooter.cpp
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(10,14): warning C4244: =: преобразование "Tx" в "float", возможна потеря данных
+          with
+          [
+              Tx=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(81,38): message : выполняется компиляция ссылки на экземпляр шаблон функции "insts::Pos::Pos<int,int>(Tx,Ty)"
+          with
+          [
+              Tx=int,
+              Ty=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(11,14): warning C4244: =: преобразование "Ty" в "float", возможна потеря данных
+          with
+          [
+              Ty=int
+          ]
+  Plant.cpp
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(10,14): warning C4244: =: преобразование "Tx" в "float", возможна потеря данных
+          with
+          [
+              Tx=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(81,38): message : выполняется компиляция ссылки на экземпляр шаблон функции "insts::Pos::Pos<int,int>(Tx,Ty)"
+          with
+          [
+              Tx=int,
+              Ty=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(11,14): warning C4244: =: преобразование "Ty" в "float", возможна потеря данных
+          with
+          [
+              Ty=int
+          ]
+  PlantsList.cpp
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(10,14): warning C4244: =: преобразование "Tx" в "float", возможна потеря данных
+          with
+          [
+              Tx=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(81,38): message : выполняется компиляция ссылки на экземпляр шаблон функции "insts::Pos::Pos<int,int>(Tx,Ty)"
+          with
+          [
+              Tx=int,
+              Ty=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(11,14): warning C4244: =: преобразование "Ty" в "float", возможна потеря данных
+          with
+          [
+              Ty=int
+          ]
+  Shooter.cpp
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(10,14): warning C4244: =: преобразование "Tx" в "float", возможна потеря данных
+          with
+          [
+              Tx=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(81,38): message : выполняется компиляция ссылки на экземпляр шаблон функции "insts::Pos::Pos<int,int>(Tx,Ty)"
+          with
+          [
+              Tx=int,
+              Ty=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(11,14): warning C4244: =: преобразование "Ty" в "float", возможна потеря данных
+          with
+          [
+              Ty=int
+          ]
+  main.cpp
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(10,14): warning C4244: =: преобразование "Tx" в "float", возможна потеря данных
+          with
+          [
+              Tx=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(81,38): message : выполняется компиляция ссылки на экземпляр шаблон функции "insts::Pos::Pos<int,int>(Tx,Ty)"
+          with
+          [
+              Tx=int,
+              Ty=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(11,14): warning C4244: =: преобразование "Ty" в "float", возможна потеря данных
+          with
+          [
+              Ty=int
+          ]
+  Создание кода
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 294 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Создание кода завершено
+  PvZ.vcxproj -> C:\Users\Azat\Desktop\программы\PvZ\x64\Release\PvZ.exe
