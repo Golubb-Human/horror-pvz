@@ -18,8 +18,18 @@ int main()
     plant.setTexture(plantTexture);
     plant.setIndexPosition(plantPos);
 
+    sf::Texture plantTexture;
+
+    plantTexture.loadFromFile(".\\res\\textures\\peashooter.png");
+
+    plant.setTexture(plantTexture);
+
     sf::Texture background;
+<<<<<<< HEAD
     Grid grid(stgs::gridNumCels);
+=======
+    Grid grid(stgs::numCels);
+>>>>>>> c8041aba73a9a6484ece3a3c5eca70e52a532714
     grid.plant(&plant, plantPos);
     sf::RenderWindow window(sf::VideoMode(640, 480), "Plants vs Zombies horror edition", sf::Style::Close);
     Draw draw(&window);

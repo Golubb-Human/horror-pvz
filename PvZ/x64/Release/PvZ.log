@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Draw.cpp
 C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(10,14): warning C4244: =: преобразование "Tx" в "float", возможна потеря данных
           with
@@ -86,6 +87,68 @@ C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(11,14): warning C424
           with
           [
               Ty=int
+=======
+﻿  Plant.cpp
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(10,19): error C2398: Элемент "1": для преобразования из "float" в "T" требуется сужающее преобразование
+          with
+          [
+              T=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(11,19): error C2398: Элемент "2": для преобразования из "float" в "T" требуется сужающее преобразование
+          with
+          [
+              T=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(11,19): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(10,19): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(20,21): error C2398: Элемент "1": для преобразования из "float" в "T" требуется сужающее преобразование
+          with
+          [
+              T=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(21,21): error C2398: Элемент "2": для преобразования из "float" в "T" требуется сужающее преобразование
+          with
+          [
+              T=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(22,14): error C2398: Элемент "3": для преобразования из "float" в "T" требуется сужающее преобразование
+          with
+          [
+              T=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(23,14): error C2398: Элемент "4": для преобразования из "float" в "T" требуется сужающее преобразование
+          with
+          [
+              T=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(23,14): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(22,14): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(21,21): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\Plant.cpp(20,21): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+>>>>>>> c8041aba73a9a6484ece3a3c5eca70e52a532714
           ]
   Shooter.cpp
 C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(10,14): warning C4244: =: преобразование "Tx" в "float", возможна потеря данных
@@ -93,7 +156,11 @@ C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(10,14): warning C424
           [
               Tx=int
           ]
+<<<<<<< HEAD
 C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(81,38): message : выполняется компиляция ссылки на экземпляр шаблон функции "insts::Pos::Pos<int,int>(Tx,Ty)"
+=======
+C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(68,38): message : выполняется компиляция ссылки на экземпляр шаблон функции "insts::Pos::Pos<int,int>(Tx,Ty)"
+>>>>>>> c8041aba73a9a6484ece3a3c5eca70e52a532714
           with
           [
               Tx=int,
@@ -104,6 +171,7 @@ C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(11,14): warning C424
           [
               Ty=int
           ]
+<<<<<<< HEAD
   main.cpp
 C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(10,14): warning C4244: =: преобразование "Tx" в "float", возможна потеря данных
           with
@@ -126,3 +194,5 @@ C:\Users\Azat\Desktop\программы\PvZ\PvZ\settings.h(11,14): warning C424
   All 294 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Создание кода завершено
   PvZ.vcxproj -> C:\Users\Azat\Desktop\программы\PvZ\x64\Release\PvZ.exe
+=======
+>>>>>>> c8041aba73a9a6484ece3a3c5eca70e52a532714

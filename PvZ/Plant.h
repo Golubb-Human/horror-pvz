@@ -11,7 +11,11 @@ public:
 	// static parametres for everyone
 	static float maxHealth;
 	static float cost;
+<<<<<<< HEAD
 	const insts::Pos offset = { 4.f, 6.f };
+=======
+	const insts::Pos size = { 463.f, 325.f };
+>>>>>>> c8041aba73a9a6484ece3a3c5eca70e52a532714
 	void setIndexPosition(insts::Pos position);
 	void setTexture(sf::Texture &texture);
 
